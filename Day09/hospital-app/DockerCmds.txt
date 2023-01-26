@@ -1,0 +1,11 @@
+docker login
+docker ps
+docker ps -a
+docker images
+docker rmi <IMAGE ID>
+docker stop <containerid>
+docker push <REPOSITORY>:<TAG>
+docker pull <REPOSITORY>:<TAG>
+docker run <REPOSITORY>:<TAG>
+docker rm <containerid>
+docker exec -ti <container-id> /bin/sh
