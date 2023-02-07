@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AppointmentRepository extends MongoRepository<Appointment,String> {
-    public Appointment findByName(String name);
+    public Appointment findByDoctorName(String doctorName);
     public Appointment save(Appointment appointment);
+    public Appointment findByPatientName(String patientName);
 }

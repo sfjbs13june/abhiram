@@ -14,7 +14,7 @@ public class DoctorController {
     AppointmentRepository appointmentRepository;
     @GetMapping("/doctor-appointment")
     public Appointment getAppointments(@RequestParam String doctorName){
-        return appointmentRepository.findByName(doctorName);
+        return appointmentRepository.findByDoctorName(doctorName);
     }
     @PostMapping("/save")
     public Appointment saveAppointment(@RequestBody Appointment appointment){
