@@ -5,6 +5,7 @@ import com.abhiram.app.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -13,7 +14,7 @@ public class DoctorController {
     @Autowired
     AppointmentRepository appointmentRepository;
     @GetMapping("/doctor-appointment")
-    public Appointment getAppointments(@RequestParam String doctorName){
+    public List<Appointment> getAppointments(@RequestParam String doctorName){
         return appointmentRepository.findByDoctorName(doctorName);
     }
     @PostMapping("/save")
