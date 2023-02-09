@@ -1,15 +1,13 @@
 package com.abhiram.app.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Appointment {
     String appointmentId;
     String patientName;
     String doctorName;
     String date;
     Prescription prescription;
-    public Appointment(){
+
+    public Appointment() {
 
     }
 
@@ -20,7 +18,6 @@ public class Appointment {
         this.date = date;
         this.prescription = prescription;
     }
-
     public String getAppointmentId() {
         return appointmentId;
     }

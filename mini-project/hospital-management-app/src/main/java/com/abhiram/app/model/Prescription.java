@@ -1,15 +1,13 @@
 package com.abhiram.app.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Prescription {
     String prescriptionId;
     String appointmentId;
     String description;
     String doctorName;
     String patientName;
-    public Prescription(){
+
+    public Prescription() {
 
     }
 
@@ -61,12 +59,4 @@ public class Prescription {
         this.patientName = patientName;
     }
 
-//    public List getData(){
-//        List data=new ArrayList();
-//        Prescription pre=new Prescription();
-//        data.add(0,pre.getPrescriptionId());
-//        data.add(1,pre.getDescription());
-//        data.add(2,pre.getDoctorName());
-//        return data;
-//    }
 }

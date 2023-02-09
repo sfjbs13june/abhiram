@@ -28,6 +28,17 @@ cd docker
 docker-compose down
 ```
 
+## Docker commands
+``` 
+docker ps -a
+
+docker stop <CONTAINER-ID>
+
+docker rm <CONTAINER-ID>
+
+docker rmi <IMAGE-ID>
+```
+
 ## Testing
 
 ### Doctor Controller
@@ -103,4 +114,11 @@ curl --location --request POST 'localhost:8083/prescription/saveprescription' \
 ## Swagger
 ``` 
 http://localhost:8083/swagger-ui/index.html
+```
+
+## Credentials
+``` 
+ROLE:DOCTOR-->Username:Doctor-->Password:doctor
+
+ROLE:PATIENT-->Username:Patient-->Password:patient
 ```
