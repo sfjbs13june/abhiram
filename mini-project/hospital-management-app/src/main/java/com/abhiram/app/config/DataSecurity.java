@@ -9,9 +9,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 public class DataSecurity extends WebSecurityConfigurerAdapter {
+    private static final String[] AUTH_LIST={
+            "/swagger-ui/**",
+            "/swagger-resources/**"
+    };
     @Override
     protected void configure(HttpSecurity http)throws Exception{
         http.httpBasic().and().authorizeRequests()
+                .antMatchers(AUTH_LIST).hasAnyRole("DOCTOR","PATIENT")
                 .antMatchers(HttpMethod.GET,"/doctor/doctor-appointment").hasAnyRole("DOCTOR")
                 .antMatchers(HttpMethod.GET,"/patient/myappointment").hasAnyRole("PATIENT")
                 .antMatchers(HttpMethod.POST,"/doctor/save").hasAnyRole("DOCTOR")

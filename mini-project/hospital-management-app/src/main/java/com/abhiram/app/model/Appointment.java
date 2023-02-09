@@ -1,5 +1,8 @@
 package com.abhiram.app.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Appointment {
     String appointmentId;
     String patientName;
@@ -57,4 +60,5 @@ public class Appointment {
     public void setPrescription(Prescription prescription) {
         this.prescription = prescription;
     }
+
 }

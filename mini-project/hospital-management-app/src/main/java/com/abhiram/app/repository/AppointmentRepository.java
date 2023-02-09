@@ -11,4 +11,5 @@ public interface AppointmentRepository extends MongoRepository<Appointment,Strin
     public List<Appointment> findByDoctorName(String doctorName);
     public Appointment save(Appointment appointment);
     public List<Appointment> findByPatientName(String patientName);
+
 }

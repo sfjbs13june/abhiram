@@ -8,25 +8,36 @@ https://start.spring.io/
 mvn clean install
 ```
 
+## Docker image Creation
+``` 
+mvn install dockerfile:build
+```
+
 ## Run the Project
 ``` 
-docker-compose -f docker-compose-mongo.yml up -d
+cd docker
+
+docker-compose up -d
+
+cd..
 
 mvn spring-boot:run
 
-docker-compose -f docker-compose-mongo.yml down
+cd docker
+
+docker-compose down
 ```
 
 ## Testing
 
 ### Doctor Controller
 ``` 
-curl --location --request GET 'localhost:8080/doctor/doctor-appointment?doctorName=abc' \
+curl --location --request GET 'localhost:8083/doctor/doctor-appointment?doctorName=abc' \
 --header 'Authorization: Basic RG9jdG9yOmRvY3Rvcg==' \
 --header 'Cookie: JSESSIONID=BA15E08B8C532E2F4C2FCD8CD494D711'
 
 
-curl --location --request POST 'localhost:8080/doctor/save' \
+curl --location --request POST 'localhost:8083/doctor/save' \
 --header 'Authorization: Basic RG9jdG9yOmRvY3Rvcg==' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=BA15E08B8C532E2F4C2FCD8CD494D711' \
@@ -47,12 +58,12 @@ curl --location --request POST 'localhost:8080/doctor/save' \
 
 ### Patient Controller
 ``` 
-curl --location --request GET 'localhost:8080/patient/myappointment?patientName=xyz' \
+curl --location --request GET 'localhost:8083/patient/myappointment?patientName=xyz' \
 --header 'Authorization: Basic UGF0aWVudDpwYXRpZW50' \
 --header 'Cookie: JSESSIONID=BA15E08B8C532E2F4C2FCD8CD494D711'
 
 
-curl --location --request POST 'localhost:8080/patient/save' \
+curl --location --request POST 'localhost:8083/patient/save' \
 --header 'Authorization: Basic UGF0aWVudDpwYXRpZW50' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=BA15E08B8C532E2F4C2FCD8CD494D711' \
@@ -73,12 +84,12 @@ curl --location --request POST 'localhost:8080/patient/save' \
 
 ### Prescription Controller
 ``` 
-curl --location --request GET 'localhost:8080/prescription/view-prescription?patientName=xyz' \
+curl --location --request GET 'localhost:8083/prescription/view-prescription?patientName=xyz' \
 --header 'Authorization: Basic UGF0aWVudDpwYXRpZW50' \
 --header 'Cookie: JSESSIONID=BA15E08B8C532E2F4C2FCD8CD494D711'
 
 
-curl --location --request POST 'localhost:8080/prescription/saveprescription' \
+curl --location --request POST 'localhost:8083/prescription/saveprescription' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "prescriptionId":"67",
@@ -91,5 +102,5 @@ curl --location --request POST 'localhost:8080/prescription/saveprescription' \
 
 ## Swagger
 ``` 
-http://localhost:8080/swagger-ui/index.html
+http://localhost:8083/swagger-ui/index.html
 ```
