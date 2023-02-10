@@ -65,5 +65,6 @@ public class PrescriptionControllerTest {
         assertEquals(prescriptions.get(0).getDoctorName(),result.get(0).getDoctorName());
         assertEquals(prescriptions.get(0).getPatientName(),result.get(0).getPatientName());
     }
+    //test
 
 }

@@ -82,5 +82,6 @@ public class DoctorControllerTest {
         assertEquals(appointments.get(0).getDoctorName(),result.get(0).getDoctorName());
         assertEquals(appointments.get(0).getPatientName(),result.get(0).getPatientName());
     }
+    //test
 
 }
