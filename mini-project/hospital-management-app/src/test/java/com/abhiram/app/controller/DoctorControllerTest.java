@@ -2,6 +2,7 @@ package com.abhiram.app.controller;
 
 
 import com.abhiram.app.model.Appointment;
+import com.abhiram.app.model.Prescription;
 import com.abhiram.app.repository.AppointmentRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -49,5 +50,37 @@ public class DoctorControllerTest {
         assertEquals(ap1,result);
     }
 
+    @Test
+    public void Test3(){
+        List<Appointment> appointments=new ArrayList();
+        Appointment appointment1=new Appointment();
+        appointment1.setAppointmentId("123");
+        appointment1.setDoctorName("abc");
+        appointment1.setDate("10-02-2023");
+        appointment1.setPatientName("xyz");
+        Prescription prescription=new Prescription("67","123","cough","abc","xyz");
+        appointment1.setPrescription(prescription);
+        appointments.add(appointment1);
+        when(appointmentRepository.findByDoctorName(anyString())).thenReturn(appointments);
+        List<Appointment> result=doctorController.getAppointments("abc");
+        assertEquals(appointments.get(0).getAppointmentId(),result.get(0).getAppointmentId());
+        assertEquals(appointments.get(0).getDoctorName(),result.get(0).getDoctorName());
+        assertEquals(appointments.get(0).getDate(),result.get(0).getDate());
+        assertEquals(appointments.get(0).getPatientName(),result.get(0).getPatientName());
+    }
+
+    @Test
+    public void Test4(){
+        List<Appointment> appointments=new ArrayList();
+        Prescription prescription1=new Prescription("45","124","fever","ram","ravi");
+        Appointment appointment1=new Appointment("124","ravi","ram","10-02-2023",prescription1);
+        appointments.add(appointment1);
+        when(appointmentRepository.findByDoctorName(anyString())).thenReturn(appointments);
+        List<Appointment> result=doctorController.getAppointments("ram");
+        assertEquals(appointments.get(0).getAppointmentId(),result.get(0).getAppointmentId());
+        assertEquals(appointments.get(0).getDate(),result.get(0).getDate());
+        assertEquals(appointments.get(0).getDoctorName(),result.get(0).getDoctorName());
+        assertEquals(appointments.get(0).getPatientName(),result.get(0).getPatientName());
+    }
 
 }
